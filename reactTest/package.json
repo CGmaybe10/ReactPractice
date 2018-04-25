@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
-    "server": "webpack-dev-server --open"
+    "server": "webpack-dev-server --open",
+    "installPackage": "npm install --save babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 react react-dom webpack webpack-cli"
   },
   "author": "",
   "license": "ISC",
