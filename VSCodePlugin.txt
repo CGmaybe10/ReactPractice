@@ -1,0 +1,9 @@
+1, Auto Close Tag
+2, Auto Rename Tag
+3, Beautify
+4, ESLine
+5, IntelliJ IDEA Keybindings
+6, npm Intellisense
+7, open in browser
+8, Path Intellisense
+9, Reactjs code snippets
