@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { OuterHeader } from './OuterHeader.jsx';
+import { NameForm } from './NameForm.jsx';
+import { FlavorForm } from './FlavorForm.jsx';
+import { Calculator } from './Calculator.jsx';
 
 class Qiang extends React.Component {
     handleClick() {
@@ -15,6 +18,9 @@ class Qiang extends React.Component {
                 <Toggle />
                 <InnerHeader />
                 <OuterHeader />
+                <NameForm />
+                <FlavorForm />
+                <Calculator />
             </div>
         );
     }
