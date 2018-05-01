@@ -4,6 +4,7 @@ import { OuterHeader } from './OuterHeader.jsx';
 import { NameForm } from './NameForm.jsx';
 import { FlavorForm } from './FlavorForm.jsx';
 import { Calculator } from './Calculator.jsx';
+import { Application } from './Application.jsx';
 
 class Qiang extends React.Component {
     handleClick() {
@@ -21,6 +22,7 @@ class Qiang extends React.Component {
                 <NameForm />
                 <FlavorForm />
                 <Calculator />
+                <Application />
             </div>
         );
     }
