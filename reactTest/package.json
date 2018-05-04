@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack",
     "server": "webpack-dev-server --open",
-    "installPackage": "npm install --save babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 react react-dom webpack webpack-cli"
+    "installPackage": "npm install --save babel-core babel-loader babel-preset-es2015 babel-preset-react babel-preset-stage-2 react react-dom webpack webpack-cli less"
   },
   "author": "",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
+    "less": "^3.0.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "webpack": "^4.6.0",

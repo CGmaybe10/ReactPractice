@@ -1,0 +1,49 @@
+@primarycolor: #ff7f50;
+@color: #800080;
+h1{
+    color:@primarycolor;
+}
+h2{
+    color: @color;
+}
+
+.container{
+    h1{
+        font-size: 25px;
+        color: #e45456;
+    }
+
+    p{
+        font-size: 25px;
+        color:#3c7949;
+    }
+
+    .myClass{
+        h1{
+            font-size:25px;
+            color: #e45456;
+        }
+    
+        p{
+            font-size:25px;
+            color:#3c7949;
+        }
+    }
+}
+
+@fontSize: 10px;
+.myClass{
+    font-size: @fontSize * 2;
+    color: green;
+}
+
+p{
+    color: ~"green";
+}
+
+@color: #ff8000;
+@width: 1.0;
+.myColor{
+    color: @color;
+    width: percentage(@width);
+}
