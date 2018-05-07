@@ -7,6 +7,7 @@ import { Calculator } from './Calculator.jsx';
 import { Application } from './Application.jsx';
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
+import config from '../config/config.json';
 
 // ccs in js写法
 const test = {
@@ -21,7 +22,7 @@ class Qiang extends React.Component {
     render() {
         return (
             <div>
-                <h1 style={test}>qiang zhong qiang!</h1>
+                <h1 style={test}>{config.greetText}</h1>
                 <h1 className={outCSS.title}>mudule css test</h1>
                 <h1 className={outLess.lessModule}>moudle less test</h1>
                 <input type='button' value='button' onClick={this.handleClick} />
