@@ -5,6 +5,8 @@ import { NameForm } from './NameForm.jsx';
 import { FlavorForm } from './FlavorForm.jsx';
 import { Calculator } from './Calculator.jsx';
 import { Application } from './Application.jsx';
+import { StateComponent } from './StateComponent.jsx';
+import { PropsComponent } from './PropsComponent.jsx';
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
 import config from '../config/config.json';
@@ -33,6 +35,9 @@ class Qiang extends React.Component {
                 <FlavorForm />
                 <Calculator />
                 <Application />
+                <StateComponent />
+                <PropsComponent/>
+                <PropsComponent name='这是传递的属性值'/>
             </div>
         );
     }
