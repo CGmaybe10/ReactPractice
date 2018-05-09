@@ -11,6 +11,9 @@ import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
 import config from '../config/config.json';
 
+var OldStateComponent = require('./OldStateComponent.jsx');
+var OldPropsComponent = require('./OldPropsComponent.jsx');
+
 // ccs in js写法
 const test = {
     color: 'green',
@@ -36,8 +39,11 @@ class Qiang extends React.Component {
                 <Calculator />
                 <Application />
                 <StateComponent />
-                <PropsComponent/>
-                <PropsComponent name='这是传递的属性值'/>
+                <PropsComponent />
+                <PropsComponent name='这是传递的属性值' />
+                <OldStateComponent />
+                <OldPropsComponent />
+                <OldPropsComponent myProps = "diy props" />
             </div>
         );
     }
