@@ -7,12 +7,14 @@ import { Calculator } from './Calculator.jsx';
 import { Application } from './Application.jsx';
 import { StateComponent } from './StateComponent.jsx';
 import { PropsComponent } from './PropsComponent.jsx';
+import { LifeCycleComponent } from './LifeCycleComponent.jsx';
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
 import config from '../config/config.json';
 
 var OldStateComponent = require('./OldStateComponent.jsx');
 var OldPropsComponent = require('./OldPropsComponent.jsx');
+var OldLifeCycleComponent = require('./OldLifeCycleComponent.jsx');
 
 // ccs in js写法
 const test = {
@@ -43,7 +45,9 @@ class Qiang extends React.Component {
                 <PropsComponent name='这是传递的属性值' />
                 <OldStateComponent />
                 <OldPropsComponent />
-                <OldPropsComponent myProps = "diy props" />
+                <OldPropsComponent myProps="diy props" />
+                <LifeCycleComponent />
+                <OldLifeCycleComponent />
             </div>
         );
     }

@@ -5,7 +5,7 @@ var OldStateComponent = createReactClass({
     getInitialState: function () {
         return {
             oldStateName: 'old default state'
-        }
+        };
     },
 
     handleClick: function () {
