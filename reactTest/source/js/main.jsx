@@ -8,6 +8,8 @@ import { Application } from './Application.jsx';
 import { StateComponent } from './StateComponent.jsx';
 import { PropsComponent } from './PropsComponent.jsx';
 import { LifeCycleComponent } from './LifeCycleComponent.jsx';
+import { UncontrolledComponent } from './UncontrolledComponent.jsx';
+import { ControlledComponent } from './ControlledComponent.jsx';
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
 import config from '../config/config.json';
@@ -48,6 +50,8 @@ class Qiang extends React.Component {
                 <OldPropsComponent myProps="diy props" />
                 <LifeCycleComponent />
                 <OldLifeCycleComponent />
+                <UncontrolledComponent />
+                <ControlledComponent />
             </div>
         );
     }
