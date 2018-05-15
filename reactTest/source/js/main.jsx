@@ -10,6 +10,7 @@ import { PropsComponent } from './PropsComponent.jsx';
 import { LifeCycleComponent } from './LifeCycleComponent.jsx';
 import { UncontrolledComponent } from './UncontrolledComponent.jsx';
 import { ControlledComponent } from './ControlledComponent.jsx';
+import { ListComponent } from './ListComponent.jsx';
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
 import config from '../config/config.json';
@@ -22,6 +23,8 @@ var OldLifeCycleComponent = require('./OldLifeCycleComponent.jsx');
 const test = {
     color: 'green',
 }
+
+const numbers = [1, 3, 5, 7];
 
 class Qiang extends React.Component {
     handleClick() {
@@ -52,6 +55,7 @@ class Qiang extends React.Component {
                 <OldLifeCycleComponent />
                 <UncontrolledComponent />
                 <ControlledComponent />
+                <ListComponent numbers={numbers} />
             </div>
         );
     }
