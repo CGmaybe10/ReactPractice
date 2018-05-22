@@ -11,6 +11,7 @@ import { LifeCycleComponent } from './LifeCycleComponent.jsx';
 import { UncontrolledComponent } from './UncontrolledComponent.jsx';
 import { ControlledComponent } from './ControlledComponent.jsx';
 import { ListComponent } from './ListComponent.jsx';
+import { ChartTestComponent } from './ChartTestComponent.jsx';
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
 import config from '../config/config.json';
@@ -34,28 +35,36 @@ class Qiang extends React.Component {
     render() {
         return (
             <div>
-                <h1 style={test}>{config.greetText}</h1>
-                <h1 className={outCSS.title}>mudule css test</h1>
-                <h1 className={outLess.lessModule}>moudle less test</h1>
-                <input type='button' value='button' onClick={this.handleClick} />
-                <Toggle />
-                <InnerHeader />
-                <OuterHeader />
-                <NameForm />
-                <FlavorForm />
-                <Calculator />
-                <Application />
-                <StateComponent />
-                <PropsComponent />
-                <PropsComponent name='这是传递的属性值' />
-                <OldStateComponent />
-                <OldPropsComponent />
-                <OldPropsComponent myProps="diy props" />
-                <LifeCycleComponent />
-                <OldLifeCycleComponent />
-                <UncontrolledComponent />
-                <ControlledComponent />
-                <ListComponent numbers={numbers} />
+                <div className={outLess.reactRoot}>
+                    <div className={outLess.reactGroup}>
+                        <h1 style={test}>{config.greetText}</h1>
+                        <h1 className={outCSS.title}>mudule css test</h1>
+                        <h1 className={outLess.lessModule}>moudle less test</h1>
+                        <input type='button' value='button' onClick={this.handleClick} />
+                        <Toggle />
+                        <InnerHeader />
+                        <OuterHeader />
+                        <NameForm />
+                        <FlavorForm />
+                        <Calculator />
+                        <Application />
+                        <StateComponent />
+                        <PropsComponent />
+                        <PropsComponent name='这是传递的属性值' />
+                        <OldStateComponent />
+                        <OldPropsComponent />
+                        <OldPropsComponent myProps="diy props" />
+                        <LifeCycleComponent />
+                        <OldLifeCycleComponent />
+                        <UncontrolledComponent />
+                        <ControlledComponent />
+                        <ListComponent numbers={numbers} />
+                    </div>
+                    <div className={outLess.reactGroup}>
+                        <ChartTestComponent />
+                    </div>
+                </div>
+                <div>sfdsflds</div>
             </div>
         );
     }
