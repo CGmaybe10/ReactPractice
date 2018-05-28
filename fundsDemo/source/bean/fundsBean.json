@@ -1,0 +1,35 @@
+{
+    "fundsPlate": [{
+            "plateName": "食品饮料",
+            "plateZDF": "-1.83%"
+        },
+        {
+            "plateName": "保险",
+            "plateZDF": "+2.35%"
+        },
+        {
+            "plateName": "券商",
+            "plateZDF": "-1.83%"
+        },
+        {
+            "plateName": "供水供气",
+            "plateZDF": "+2.35%"
+        },
+        {
+            "plateName": "商务服务",
+            "plateZDF": "-1.83%"
+        },
+        {
+            "plateName": "煤炭石油",
+            "plateZDF": "+2.35%"
+        },
+        {
+            "plateName": "软件",
+            "plateZDF": "-1.83%"
+        },
+        {
+            "plateName": "公共设施",
+            "plateZDF": "+2.35%"
+        }
+    ]
+}
