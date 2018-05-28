@@ -30,6 +30,10 @@
         {
             "plateName": "公共设施",
             "plateZDF": "+2.35%"
+        },
+        {
+            "plateName": "最后一组数据",
+            "plateZDF": "-1.83%"
         }
     ]
 }
