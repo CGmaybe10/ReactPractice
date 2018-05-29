@@ -3,35 +3,33 @@ import ReactDOM from 'react-dom';
 import fundsStyle from '../css/fundsStyle.less';
 import fundsData from '../bean/fundsBean.json';
 
-let newTabData;
+let mPlateData;
 
 class MainComponent extends React.Component {
     constructor(props) {
         super(props);
 
-        let newData = this.concertDataFormat(fundsData.fundsPlate);
-        newTabData = newData.map((item => {
-            let lastTD = item[1] !== undefined ? fundsStyle.fundsPlateItemStyle : null;
-
+        let tempPlateData = this.concertDataFormat(fundsData.fundsPlate);
+        mPlateData = tempPlateData.map((item, index) => {
+            let hideStyle = item[1] !== undefined ? fundsStyle.fundsPlateItemStyle : null;
             return (
-                <tbody>
-                    <tr >
-                        <td className={fundsStyle.fundsPlateItemStyle}>
-                            <p className={fundsStyle.fundsPlateItemName}>{item[0].plateName}</p>
-                            <p className={fundsStyle.fundsPlateItemContent}>{item[0].plateZDF}</p>
-                        </td>
-                        <td className={lastTD}>
-                            <p className={fundsStyle.fundsPlateItemName}>{item[1] !== undefined ? item[1].plateName : ""}</p>
-                            <p className={fundsStyle.fundsPlateItemContent}>{item[1] !== undefined ? item[1].plateZDF : ""}</p>
-                        </td>
-                    </tr>
-                </tbody>
+                <tr key={index}>
+                    <td className={fundsStyle.fundsPlateItemStyle}>
+                        <p className={fundsStyle.fundsPlateItemName}>{item[0].plateName}</p>
+                        <p className={fundsStyle.fundsPlateItemContent}>{item[0].plateZDF}</p>
+                    </td>
+                    <td className={hideStyle}>
+                        <p className={fundsStyle.fundsPlateItemName}>{item[1] !== undefined ? item[1].plateName : ""}</p>
+                        <p className={fundsStyle.fundsPlateItemContent}>{item[1] !== undefined ? item[1].plateZDF : ""}</p>
+                    </td>
+                </tr>
             );
         }
-        ));
+        );
     }
 
-    concertDataFormat(originData, row, cl) {
+    /* 将一维数组转换为二维数组，每个二维数组里有两个数据 */
+    concertDataFormat(originData) {
         let k = 0;
         let newData = new Array();
         for (let i = 0; i < originData.length / 2; i++) {
@@ -51,7 +49,11 @@ class MainComponent extends React.Component {
         return (
             <div>
                 <h4 className={fundsStyle.fundsTitleStyle}>所属板块</h4>
-                <table className={fundsStyle.fundsPlateContentStyle}>{newTabData}</table>
+                <table className={fundsStyle.fundsPlateContentStyle}>
+                    <tbody>
+                        {mPlateData}
+                    </tbody>
+                </table>
                 <h4 className={fundsStyle.fundsTitleStyle}>今日资金流向</h4>
             </div>
         );

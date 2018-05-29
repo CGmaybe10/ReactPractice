@@ -1,3 +1,4 @@
+@fundsPlateTitleColor: #333333;
 @fundsPlateItemBgColor: #e8f2fd;
 @fundsPlateItemTitleColor: #333333;
 
@@ -8,26 +9,29 @@
 
 .fundsTitleStyle{
     margin-left: 15px;
-    clear: both;
+    font-size: 14px;
+    color: @fundsPlateTitleColor;
 }
 
 .fundsPlateContentStyle{
-    border-spacing: 15px 5px;
-}
-
-td{
-    width: 50%;
+    border-spacing: 15px 10px;
 }
 
 .fundsPlateItemStyle{
+    width: 50%;
     background-color: @fundsPlateItemBgColor;
-    list-style-type: none;
+    border-radius: 2px;
 }
 
 .fundsPlateItemName{
     float: left;
+    padding: 10px;
+    font-size: 12px;
+    color: @fundsPlateItemTitleColor;
 }
 
 .fundsPlateItemContent{
     float: right;
+    padding: 10px;
+    font-size: 12px;
 }
