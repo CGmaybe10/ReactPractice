@@ -4,6 +4,7 @@ import fundsStyle from '../css/fundsStyle.less';
 import fundsData from '../bean/fundsBean.json';
 
 let mPlateData;
+let testData;
 
 class MainComponent extends React.Component {
     constructor(props) {
@@ -26,6 +27,19 @@ class MainComponent extends React.Component {
             );
         }
         );
+
+        testData = fundsData.fundsPlate.map((item, index) => {
+            return (
+                <li key={index} className={fundsStyle.testLi}>
+                    <div className={fundsStyle.layoutspace}>
+                        <div className={fundsStyle.testDiv}>
+                            <span className={fundsStyle.span1}> {item.plateName}</span>
+                            <span className={fundsStyle.span2}>  {item.plateZDF}</span>
+                        </div>
+                    </div>
+                </li>
+            );
+        });
     }
 
     /* 将一维数组转换为二维数组，每个二维数组里有两个数据 */
@@ -54,6 +68,7 @@ class MainComponent extends React.Component {
                         {mPlateData}
                     </tbody>
                 </table>
+                <ul>{testData}</ul>
                 <h4 className={fundsStyle.fundsTitleStyle}>今日资金流向</h4>
             </div>
         );
