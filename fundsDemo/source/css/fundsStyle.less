@@ -37,41 +37,38 @@
     font-size: 12px;
 }
 
-ul{
-    width: 100%;
-    box-sizing: border-box;
-    padding-right: 28px;
+.ListStyle{
+    width: 336px;
+    padding-right: 15px;
+    // box-sizing: border-box;
 }
 
-.testLi{
+.ListItemStyle{
     float: left;
     width :50%;
-    box-sizing: border-box;
-    display: block;
-}
-
-.layoutspace{
-    width:100%;
-    box-sizing: border-box;
-    padding-left: 28px;
+    list-style-type: none;
+    margin-bottom: 10px;
+    // box-sizing: border-box;
+    // display: block;
 }
 
 .testDiv{
-    background-color: aqua;
-    height: 50px;
-    line-height: 50px;
-    justify-content: space-between;
-    margin-top: 10px;
+    background-color: @fundsPlateItemBgColor;
+    border-radius: 2px;
+    padding: 10px;
+    font-size: 12px;
+    margin-left: 15px;
     display:flex;
 }
 
-.span1{
-    color :black;
+.ListItemTitle{
+    color :@fundsPlateTitleColor;
     width: 50%;
+    text-align: left;
 }
 
-.span2{
-    color :black;
+.ListItemContent{
+    color :@fundsPlateTitleColor;
     width: 50%;
     text-align:right;
 }

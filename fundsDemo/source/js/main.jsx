@@ -30,12 +30,10 @@ class MainComponent extends React.Component {
 
         testData = fundsData.fundsPlate.map((item, index) => {
             return (
-                <li key={index} className={fundsStyle.testLi}>
-                    <div className={fundsStyle.layoutspace}>
-                        <div className={fundsStyle.testDiv}>
-                            <span className={fundsStyle.span1}> {item.plateName}</span>
-                            <span className={fundsStyle.span2}>  {item.plateZDF}</span>
-                        </div>
+                <li key={index} className={fundsStyle.ListItemStyle}>
+                    <div className={fundsStyle.testDiv}>
+                        <span className={fundsStyle.ListItemTitle}> {item.plateName}</span>
+                        <span className={fundsStyle.ListItemContent}>  {item.plateZDF}</span>
                     </div>
                 </li>
             );
@@ -68,7 +66,7 @@ class MainComponent extends React.Component {
                         {mPlateData}
                     </tbody>
                 </table>
-                <ul>{testData}</ul>
+                <ul className={fundsStyle.ListStyle}>{testData}</ul>
                 <h4 className={fundsStyle.fundsTitleStyle}>今日资金流向</h4>
             </div>
         );
