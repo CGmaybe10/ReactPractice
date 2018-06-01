@@ -2,14 +2,20 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import fundsStyle from '../css/fundsStyle.less';
 import fundsData from '../bean/fundsBean.json';
+import echarts from 'echarts';
 
 let mPlateData;
 let testData;
+let mFundsFlowOption;
 
 class MainComponent extends React.Component {
     constructor(props) {
         super(props);
 
+        this.initData();
+    }
+
+    initData() {
         let tempPlateData = this.concertDataFormat(fundsData.fundsPlate);
         mPlateData = tempPlateData.map((item, index) => {
             let hideStyle = item[1] !== undefined ? fundsStyle.fundsPlateItemStyle : null;
@@ -38,6 +44,148 @@ class MainComponent extends React.Component {
                 </li>
             );
         });
+
+        mFundsFlowOption = {
+            title: {
+                text: '今日资金',
+                textStyle: {
+                    color: '#bfbfbf',
+                    fontSize: 16,
+                    fontWeight: 'bold',
+                },
+                left: 'center',
+                top: 'center',
+            },
+            legend: {
+                show: false,
+            },
+            series: {
+                type: 'pie',
+                radius: ['50%', '70%'],
+                label: {
+                    show: true,
+                    position: 'outside',
+                },
+                data: [
+                    {
+                        name: '散户流入',
+                        value: '40',
+                        label: {
+                            formatter: '{NameStyle|{b}}\n{percentStyle|{d}%}\n{valueStyle|{c}万}',
+                            rich: {
+                                NameStyle: {
+                                    textSize: 12,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'right',
+                                },
+                                percentStyle: {
+                                    fontSize: 14,
+                                    lineHeight: 20,
+                                    align: 'right',
+                                },
+                                valueStyle: {
+                                    fontSize: 12,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'right',
+                                }
+                            }
+                        },
+                        itemStyle: {
+                            color: '#fd4a46'
+                        }
+                    },
+                    {
+                        name: '散户流出',
+                        value: '10',
+                        label: {
+                            formatter: '{NameStyle|{b}}\n{percentStyle|{d}%}\n{valueStyle|{c}万}',
+                            rich: {
+                                NameStyle: {
+                                    textSize: 12,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'right',
+                                },
+                                percentStyle: {
+                                    fontSize: 14,
+                                    lineHeight: 20,
+                                    align: 'right',
+                                },
+                                valueStyle: {
+                                    fontSize: 12,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'right',
+                                }
+                            }
+                        },
+                        itemStyle: {
+                            color: '#08c560'
+                        }
+                    },
+                    {
+                        name: '主力流出',
+                        value: '23',
+                        label: {
+                            formatter: '{NameStyle|{b}}\n{percentStyle|{d}%}\n{valueStyle|{c}万}',
+                            rich: {
+                                NameStyle: {
+                                    fontSize: 12,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'left',
+                                },
+                                valueStyle: {
+                                    fontSize: 14,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'left',
+                                },
+                                percentStyle: {
+                                    fontSize: 12,
+                                    lineHeight: 20,
+                                    align: 'left',
+                                }
+                            }
+                        },
+                        itemStyle: {
+                            color: '#069e4e'
+                        }
+                    },
+                    {
+                        name: '主力流入',
+                        value: '25',
+                        label: {
+                            formatter: '{NameStyle|{b}}\n{percentStyle|{d}%}\n{valueStyle|{c}万}',
+                            rich: {
+                                NameStyle: {
+                                    fontSize: 12,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'left',
+                                },
+                                percentStyle: {
+                                    fontSize: 14,
+                                    lineHeight: 20,
+                                    align: 'left',
+                                },
+                                valueStyle: {
+                                    fontSize: 12,
+                                    color: '#2e2e3f',
+                                    lineHeight: 20,
+                                    align: 'left',
+                                }
+                            }
+                        },
+                        itemStyle: {
+                            color: '#f34a55'
+                        }
+                    },
+                ]
+            }
+        }
     }
 
     /* 将一维数组转换为二维数组，每个二维数组里有两个数据 */
@@ -57,6 +205,11 @@ class MainComponent extends React.Component {
         return newData;
     }
 
+    componentDidMount() {
+        let flowDirctionChart = echarts.init(this.fundsFlowPie);
+        flowDirctionChart.setOption(mFundsFlowOption);
+    }
+
     render() {
         return (
             <div>
@@ -68,6 +221,7 @@ class MainComponent extends React.Component {
                 </table>
                 <ul className={fundsStyle.ListStyle}>{testData}</ul>
                 <h4 className={fundsStyle.fundsTitleStyle}>今日资金流向</h4>
+                <div className={fundsStyle.fundsFlowDirectionPie} ref={flowPie => this.fundsFlowPie = flowPie}>asfdasdf</div>
             </div>
         );
     }
