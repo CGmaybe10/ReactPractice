@@ -7,6 +7,7 @@ import echarts from 'echarts';
 let mPlateData;
 let testData;
 let mFundsFlowOption;
+let mFundsFlowBarOption;
 
 class MainComponent extends React.Component {
     constructor(props) {
@@ -69,7 +70,7 @@ class MainComponent extends React.Component {
                 data: [
                     {
                         name: '散户流入',
-                        value: '40',
+                        value: '30',
                         label: {
                             formatter: '{NameStyle|{b}}\n{percentStyle|{d}%}\n{valueStyle|{c}万}',
                             rich: {
@@ -98,7 +99,7 @@ class MainComponent extends React.Component {
                     },
                     {
                         name: '散户流出',
-                        value: '10',
+                        value: '20',
                         label: {
                             formatter: '{NameStyle|{b}}\n{percentStyle|{d}%}\n{valueStyle|{c}万}',
                             rich: {
@@ -186,6 +187,93 @@ class MainComponent extends React.Component {
                 ]
             }
         }
+
+        mFundsFlowBarOption = {
+            grid:{
+                show: true,
+                height: '100%',
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['超大单', '大单', '中单', '小单'],
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        type: 'dotted',
+                        color: '#a4aebf',
+                    }
+                },
+                axisLabel: {
+                    show: false,
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: false,
+                },
+                splitLine: {
+                    show: false,
+                }
+            }],
+            series: [
+                {
+                    type: 'bar',
+                    barWidth: '26px',
+                    data: [
+                        {
+                            value: -2000,
+                            color: '#cc99cc',
+                            itemStyle: {
+                                color: '#08c560',
+                            },
+                            label: {
+                                show: true,
+                                position: 'bottom',
+                            },
+                        },
+                        {
+                            value: 1700,
+                            itemStyle: {
+                                color: '#fd4a46',
+                            },
+                            label: {
+                                show: true,
+                                position: 'bottom',
+                            },
+                        },
+                        {
+                            value: -3000,
+                            itemStyle: {
+                                color: '#fd4a46',
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                            },
+                        },
+                        {
+                            value: -2000,
+                            itemStyle: {
+                                color: '#08c560',
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                            },
+                        },
+                    ]
+                }
+            ]
+        }
     }
 
     /* 将一维数组转换为二维数组，每个二维数组里有两个数据 */
@@ -208,6 +296,9 @@ class MainComponent extends React.Component {
     componentDidMount() {
         let flowDirctionChart = echarts.init(this.fundsFlowPie);
         flowDirctionChart.setOption(mFundsFlowOption);
+
+        let flowBarChart = echarts.init(this.fundsFlowBar);
+        flowBarChart.setOption(mFundsFlowBarOption);
     }
 
     render() {
@@ -232,6 +323,7 @@ class MainComponent extends React.Component {
                         <span className={fundsStyle.fundsOutflowContent}>-132.29</span>
                     </div>
                 </div>
+                <div className={fundsStyle.fundsFlowBar} ref={flowBar => this.fundsFlowBar = flowBar}></div>
             </div>
         );
     }
