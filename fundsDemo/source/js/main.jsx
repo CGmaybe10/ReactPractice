@@ -31,7 +31,7 @@ class MainComponent extends React.Component {
         testData = fundsData.fundsPlate.map((item, index) => {
             return (
                 <li key={index} className={fundsStyle.ListItemStyle}>
-                    <div className={fundsStyle.testDiv}>
+                    <div>
                         <span className={fundsStyle.ListItemTitle}> {item.plateName}</span>
                         <span className={fundsStyle.ListItemContent}>  {item.plateZDF}</span>
                     </div>
