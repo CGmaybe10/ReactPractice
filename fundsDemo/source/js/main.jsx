@@ -189,9 +189,11 @@ class MainComponent extends React.Component {
         }
 
         mFundsFlowBarOption = {
-            grid:{
-                show: true,
-                height: '100%',
+            grid: {
+                show: false,
+                top: '15px',
+                left: '0px',
+                right: '0px',
             },
             xAxis: [{
                 type: 'category',
@@ -206,7 +208,8 @@ class MainComponent extends React.Component {
                     }
                 },
                 axisLabel: {
-                    show: false,
+                    show: true,
+                    color: '#333333',
                 },
             }],
             yAxis: [{
@@ -237,7 +240,7 @@ class MainComponent extends React.Component {
                             },
                             label: {
                                 show: true,
-                                position: 'bottom',
+                                position: 'top',
                             },
                         },
                         {
@@ -251,13 +254,13 @@ class MainComponent extends React.Component {
                             },
                         },
                         {
-                            value: -3000,
+                            value: 3000,
                             itemStyle: {
                                 color: '#fd4a46',
                             },
                             label: {
                                 show: true,
-                                position: 'top',
+                                position: 'bottom',
                             },
                         },
                         {
@@ -324,6 +327,13 @@ class MainComponent extends React.Component {
                     </div>
                 </div>
                 <div className={fundsStyle.fundsFlowBar} ref={flowBar => this.fundsFlowBar = flowBar}></div>
+                <div className={fundsStyle.fundsFlowLegend}>
+                    <span>
+                        <span className={fundsStyle.inflowSymble} />&nbsp;流入&nbsp; &nbsp;&nbsp;
+                        <span className={fundsStyle.outflowSymble} />&nbsp;流出
+                    </span>
+                    <span className={fundsStyle.fundsUnitStyle}>(单位：万元)</span>
+                </div>
             </div>
         );
     }
