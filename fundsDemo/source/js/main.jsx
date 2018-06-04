@@ -8,6 +8,8 @@ let mPlateData;
 let testData;
 let mFundsFlowOption;
 let mFundsFlowBarOption;
+let mFundsFiveFlowBarOption;
+let mFundsManyFlowBarOption;
 
 class MainComponent extends React.Component {
     constructor(props) {
@@ -277,6 +279,197 @@ class MainComponent extends React.Component {
                 }
             ]
         }
+
+        mFundsFiveFlowBarOption = {
+            grid: {
+                show: false,
+                top: '15px',
+                left: '0px',
+                right: '0px',
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['04-23', '04-24', '04-25', '04-26', '04-27'],
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        type: 'dotted',
+                        color: '#a4aebf',
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    color: '#333333',
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: false,
+                },
+                splitLine: {
+                    show: false,
+                }
+            }],
+            series: [
+                {
+                    type: 'bar',
+                    barWidth: '26px',
+                    data: [
+                        {
+                            value: 18529.2,
+                            color: '#cc99cc',
+                            itemStyle: {
+                                color: '#08c560',
+                            },
+                            label: {
+                                show: true,
+                                position: 'bottom',
+                            },
+                        },
+                        {
+                            value: 48813.1,
+                            itemStyle: {
+                                color: '#fd4a46',
+                            },
+                            label: {
+                                show: true,
+                                position: 'bottom',
+                            },
+                        },
+                        {
+                            value: -3149.8,
+                            itemStyle: {
+                                color: '#fd4a46',
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                            },
+                        },
+                        {
+                            value: -30533,
+                            itemStyle: {
+                                color: '#08c560',
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                            },
+                        },
+                        {
+                            value: -10757.5,
+                            itemStyle: {
+                                color: '#08c560',
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                            },
+                        },
+                    ]
+                }
+            ]
+        }
+
+        mFundsManyFlowBarOption = {
+            grid: {
+                show: false,
+                top: '15px',
+                left: '0px',
+                right: '0px',
+            },
+            xAxis: [{
+                type: 'category',
+                data: ['3日', '5日', '10日', '20日'],
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    lineStyle: {
+                        type: 'dotted',
+                        color: '#a4aebf',
+                    }
+                },
+                axisLabel: {
+                    show: true,
+                    color: '#333333',
+                },
+            }],
+            yAxis: [{
+                type: 'value',
+                axisTick: {
+                    show: false,
+                },
+                axisLine: {
+                    show: false,
+                },
+                axisLabel: {
+                    show: false,
+                },
+                splitLine: {
+                    show: false,
+                }
+            }],
+            series: [
+                {
+                    type: 'bar',
+                    barWidth: '26px',
+                    data: [
+                        {
+                            value: -4.56,
+                            color: '#cc99cc',
+                            itemStyle: {
+                                color: '#08c560',
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                            },
+                        },
+                        {
+                            value: 1.01,
+                            itemStyle: {
+                                color: '#fd4a46',
+                            },
+                            label: {
+                                show: true,
+                                position: 'bottom',
+                            },
+                        },
+                        {
+                            value: 3.61,
+                            itemStyle: {
+                                color: '#fd4a46',
+                            },
+                            label: {
+                                show: true,
+                                position: 'bottom',
+                            },
+                        },
+                        {
+                            value: -0.05,
+                            itemStyle: {
+                                color: '#08c560',
+                            },
+                            label: {
+                                show: true,
+                                position: 'top',
+                            },
+                        }
+                    ]
+                }
+            ]
+        }
+
     }
 
     /* 将一维数组转换为二维数组，每个二维数组里有两个数据 */
@@ -302,6 +495,12 @@ class MainComponent extends React.Component {
 
         let flowBarChart = echarts.init(this.fundsFlowBar);
         flowBarChart.setOption(mFundsFlowBarOption);
+
+        let fiveFlowBarChart = echarts.init(this.fundsFiveFlowBar);
+        fiveFlowBarChart.setOption(mFundsFiveFlowBarOption);
+
+        let manyFlowBarChart = echarts.init(this.fundsManyFlowBar);
+        manyFlowBarChart.setOption(mFundsManyFlowBarOption);
     }
 
     render() {
@@ -334,6 +533,29 @@ class MainComponent extends React.Component {
                     </span>
                     <span className={fundsStyle.fundsUnitStyle}>(单位：万元)</span>
                 </div>
+                <h4 className={fundsStyle.fundsTitleStyle}>最近五日主力增减仓</h4>
+                <div className={fundsStyle.fundsFiveDayFlowLegend}>
+                    <div className={fundsStyle.fundsFiveDayLegendLeft}>
+                        <span>
+                            <span className={fundsStyle.inflowSymble} />&nbsp;流入&nbsp; &nbsp;&nbsp;
+                            <span className={fundsStyle.outflowSymble} />&nbsp;流出
+                        </span>
+                    </div>
+                    <div className={fundsStyle.fundsFiveDayLegendRight}>
+                        <span>净流入：<span>-132.9</span></span>
+                        <span className={fundsStyle.fundsUnitStyle}>(单位：万元)</span>
+                    </div>
+                </div>
+                <div className={fundsStyle.fundsFlowBar} ref={fiveflowBar => this.fundsFiveFlowBar = fiveflowBar}></div>
+                <h4 className={fundsStyle.fundsTitleStyle}>多日主力资金流向</h4>
+                <div className={fundsStyle.fundsFlowLegend}>
+                    <span>
+                        <span className={fundsStyle.inflowSymble} />&nbsp;流入&nbsp; &nbsp;&nbsp;
+                        <span className={fundsStyle.outflowSymble} />&nbsp;流出
+                    </span>
+                    <span className={fundsStyle.fundsUnitStyle}>(单位：万元)</span>
+                </div>
+                <div className={fundsStyle.fundsFlowBar} ref={manyFlowBar => this.fundsManyFlowBar = manyFlowBar}></div>
             </div>
         );
     }
