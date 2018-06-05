@@ -514,7 +514,7 @@ class MainComponent extends React.Component {
                 </table>
                 <ul className={fundsStyle.ListStyle}>{testData}</ul>
                 <h4 className={fundsStyle.fundsTitleStyle}>今日资金流向</h4>
-                <div className={fundsStyle.fundsFlowDirectionPie} ref={flowPie => this.fundsFlowPie = flowPie}>asfdasdf</div>
+                <div className={fundsStyle.fundsFlowDirectionPie} ref={flowPie => this.fundsFlowPie = flowPie}></div>
                 <div className={fundsStyle.fundsFlow}>
                     <div>
                         <span className={fundsStyle.fundsFlowTitle}>主力净流入：</span>
