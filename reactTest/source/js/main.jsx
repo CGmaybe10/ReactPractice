@@ -32,6 +32,10 @@ class Qiang extends React.Component {
         console.log("moubiao", 'onClick---->');
     }
 
+    handConsoleInput(inputData) {
+        console.log('----component accept input data = ' + inputData);
+    }
+
     render() {
         return (
             <div>
@@ -104,4 +108,9 @@ class InnerHeader extends React.Component {
     }
 };
 
-ReactDOM.render(<Qiang />, document.getElementById('root'));
+let MainDOM = ReactDOM.render(<Qiang />, document.getElementById('root'));
+
+window.setDebugInfo = function (consoleData) {
+    console.log('----console input data = ' + consoleData);
+    MainDOM.handConsoleInput(consoleData);
+};
