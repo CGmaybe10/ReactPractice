@@ -6,6 +6,7 @@ import echarts from 'echarts';
 
 let mPlateData;
 let testData;
+let flexData;
 let mFundsFlowOption;
 let mFundsFlowBarOption;
 let mFundsFiveFlowBarOption;
@@ -45,6 +46,17 @@ class MainComponent extends React.Component {
                         <span className={fundsStyle.ListItemContent}>  {item.plateZDF}</span>
                     </div>
                 </li>
+            );
+        });
+
+        flexData = fundsData.fundsPlate.map((item, index) => {
+            return (
+                <div key={index} className={fundsStyle.flexItemStyle}>
+                    <p className={fundsStyle.flexItemContent}>
+                        <span>{item.plateName}</span>
+                        <span>{item.plateZDF}</span>
+                    </p>
+                </div>
             );
         });
 
@@ -513,6 +525,7 @@ class MainComponent extends React.Component {
                     </tbody>
                 </table>
                 <ul className={fundsStyle.ListStyle}>{testData}</ul>
+                <div className={fundsStyle.FlexStyle}>{flexData}</div>
                 <h4 className={fundsStyle.fundsTitleStyle}>今日资金流向</h4>
                 <div className={fundsStyle.fundsFlowDirectionPie} ref={flowPie => this.fundsFlowPie = flowPie}></div>
                 <div className={fundsStyle.fundsFlow}>
