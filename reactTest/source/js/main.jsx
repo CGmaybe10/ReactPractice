@@ -13,6 +13,8 @@ import { ControlledComponent } from './ControlledComponent.jsx';
 import { ListComponent } from './ListComponent.jsx';
 import { ChartTestComponent } from './ChartTestComponent.jsx';
 import { GrandfatherComponent } from './GrandfatherComponent.jsx';
+import { ChildOneComponent } from './ChildOneComponent.jsx';
+import { ChildTwoComponent } from './ChildTwoComponent.jsx';
 
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
@@ -70,9 +72,10 @@ class Qiang extends React.Component {
                         <ChartTestComponent />
                     </div>
                 </div>
-                <div>sfdsflds</div>
-                <h4>组件间相互通信：</h4>
+                <h3>组件间相互通信：</h3>
                 <GrandfatherComponent rootData="这是root数据" />
+                <ChildOneComponent />
+                <ChildTwoComponent />
             </div>
         );
     }
