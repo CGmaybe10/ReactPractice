@@ -12,6 +12,8 @@ import { UncontrolledComponent } from './UncontrolledComponent.jsx';
 import { ControlledComponent } from './ControlledComponent.jsx';
 import { ListComponent } from './ListComponent.jsx';
 import { ChartTestComponent } from './ChartTestComponent.jsx';
+import { GrandfatherComponent } from './GrandfatherComponent.jsx';
+
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
 import config from '../config/config.json';
@@ -69,6 +71,8 @@ class Qiang extends React.Component {
                     </div>
                 </div>
                 <div>sfdsflds</div>
+                <h4>组件间相互通信：</h4>
+                <GrandfatherComponent rootData="这是root数据" />
             </div>
         );
     }
