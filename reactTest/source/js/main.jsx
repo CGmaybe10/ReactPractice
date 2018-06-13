@@ -15,6 +15,7 @@ import { ChartTestComponent } from './ChartTestComponent.jsx';
 import { GrandfatherComponent } from './GrandfatherComponent.jsx';
 import { ChildOneComponent } from './ChildOneComponent.jsx';
 import { ChildTwoComponent } from './ChildTwoComponent.jsx';
+import { DialogComponent } from './DialogComponent.jsx';
 
 import outCSS from '../css/inReact.css';//css module写法
 import outLess from '../css/testLessModule.less';
@@ -63,6 +64,13 @@ class Qiang extends React.Component {
         });
     }
 
+    showAnotherDialog() {
+        let dialog = document.createElement("div");
+        dialog.setAttribute('id', 'dialog');
+        document.body.appendChild(dialog);
+        ReactDOM.render(<DialogComponent />, document.getElementById('dialog'));
+    }
+
     render() {
         return (
             <div>
@@ -100,12 +108,15 @@ class Qiang extends React.Component {
                 <ChildOneComponent />
                 <ChildTwoComponent />
                 <div>
-                    <button onClick={this.showDialog}>显示对话框</button>
+                    <button onClick={this.showDialog}>显示对话框(设置可见性的方式)</button>
+                </div>
+                <div>
+                    <button onClick={this.showAnotherDialog}>显示对话框(动态添加标签的方式)</button>
                 </div>
                 <div className={this.state.dialogStyle}>
                     <div>
                         <h4>这是一个对话框</h4>
-                        <p>我是对话框</p>
+                        <p>通过设置可见性的方式实现的对话框</p>
                         <button onClick={this.hideDialog}>取消对话框</button>
                     </div>
                 </div>
