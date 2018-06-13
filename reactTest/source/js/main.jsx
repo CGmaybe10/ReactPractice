@@ -36,7 +36,7 @@ class Qiang extends React.Component {
         super(props);
 
         this.state = {
-            dialogStyle: outLess.showDialogStyle,
+            dialogStyle: outLess.hideDialogStyle,
         }
         this.showDialog = this.showDialog.bind(this);
         this.hideDialog = this.hideDialog.bind(this);
@@ -102,10 +102,12 @@ class Qiang extends React.Component {
                 <div>
                     <button onClick={this.showDialog}>显示对话框</button>
                 </div>
-                <div className={this.state.dialogStyle} ref={dialog => this.dialog = dialog}>
-                    <h4>title</h4>
-                    <p>content</p>
-                    <button onClick={this.hideDialog}>取消对话框</button>
+                <div className={this.state.dialogStyle}>
+                    <div>
+                        <h4>这是一个对话框</h4>
+                        <p>我是对话框</p>
+                        <button onClick={this.hideDialog}>取消对话框</button>
+                    </div>
                 </div>
             </div>
         );
