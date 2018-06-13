@@ -32,12 +32,35 @@ const test = {
 const numbers = [1, 3, 5, 7];
 
 class Qiang extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            dialogStyle: outLess.showDialogStyle,
+        }
+        this.showDialog = this.showDialog.bind(this);
+        this.hideDialog = this.hideDialog.bind(this);
+    }
+
+
     handleClick() {
         console.log("moubiao", 'onClick---->');
     }
 
     handConsoleInput(inputData) {
         console.log('----component accept input data = ' + inputData);
+    }
+
+    showDialog() {
+        this.setState({
+            dialogStyle: outLess.showDialogStyle,
+        });
+    }
+
+    hideDialog() {
+        this.setState({
+            dialogStyle: outLess.hideDialogStyle,
+        });
     }
 
     render() {
@@ -76,6 +99,14 @@ class Qiang extends React.Component {
                 <GrandfatherComponent rootData="这是root数据" />
                 <ChildOneComponent />
                 <ChildTwoComponent />
+                <div>
+                    <button onClick={this.showDialog}>显示对话框</button>
+                </div>
+                <div className={this.state.dialogStyle} ref={dialog => this.dialog = dialog}>
+                    <h4>title</h4>
+                    <p>content</p>
+                    <button onClick={this.hideDialog}>取消对话框</button>
+                </div>
             </div>
         );
     }
